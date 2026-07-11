@@ -1,0 +1,27 @@
+---
+description: ABM 二次开发实现规范入口（内核桥、画布、对话、阶段）
+alwaysApply: true
+---
+
+# ABM 实现规范
+
+动手改代码前读 `docs/ai/IMPLEMENTATION.md`（实现总入口），并按任务读对应 `docs/ai/impl/*`。
+
+## 已定关键决策（除非 Boss 推翻）
+
+- **内核复用 Python**：`packages/abm-kernel`（Mesa）是仿真事实源；server 经**子进程 + NDJSON** 调用，**不**在 TS 重写。见 `impl/kernel-bridge.md`。
+- **数据契约 = 内核 schema**：`abm_kernel/schemas/*` + `trace.py` 为准；TS 只镜像不分叉。见 `impl/architecture.md`。
+- **画布分层**：grid 走 Canvas2D `ImageData` 栅格；network/超大走 **WebGL 实例化**；大帧走**二进制 + Web Worker**，渲染与仿真节拍解耦。见 `impl/simulation-canvas.md`。
+- **对话复用现有栈**：扩 `UIMessage` union + `MessageBlock`，复用 `PlanPreviewCard`/`PermissionDialog`/`AskUserQuestion`；ABM 状态进独立 `desktop/src/abm/stores/`。见 `impl/conversation-ux.md`。
+
+## 阶段（概览 `impl/roadmap.md`；逐任务 `impl/plans/P0..P3`）
+
+P0 内核桥+骨架 → P1 工作区+画布 → P2 对话+证据链解释 → P3 实验+复现。每阶段是端到端切片，按 `impl/plans/<阶段>.md` 的 Task 顺序执行，勿跳阶段或偷扩 MVP。
+
+## 仿真帧通道（已定）
+
+走独立二进制 WS `/ws/abm/:runId`（流畅优先），不与聊天 socket 混流；仅解释文本走对话通道。
+
+## 红线
+
+确定性可复现（seed+参数+版本）；解释必引真实 Trace、无证据标「推测」、禁编造；展示降采样不改 Run 结果。

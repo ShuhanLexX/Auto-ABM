@@ -1,0 +1,23 @@
+---
+description: desktop 面 ABM UI 约束（仿真工作区）
+globs: desktop/src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Desktop · ABM UI
+
+路由：`docs/ai/SURFACE-ROUTING.md`。ABM UI 优先放 `desktop/src/abm/`。
+
+## 布局意图（目标态）
+
+左：项目 / Simulation 列表 · 中：对话 · 右：**仿真工作区**（Interface、画布、Trace、ODD、结果）。
+
+## 规则
+
+- 新 ABM 面板跟现有 design system（`lucide-react`、致密工具型 UI）；避免营销式大卡片。
+- 解释/图表 UI 须能跳转 Run、Trace tick、ODD 段落。
+- 复用 `desktop/src/api/` 与 store 模式；业务状态与聊天 store 解耦。
+- 控件尺寸稳定：标签/加载态切换不抖动布局。
+- 可见流程改动：Vitest + 可行时 browser smoke。
+
+默认弱化代码 diff 面板在 ABM 主路径的权重（非删除底座能力）。

@@ -1,0 +1,19 @@
+---
+description: server 面 ABM API、Run、Trace、持久化
+globs: src/server/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Server · ABM
+
+路由：`docs/ai/SURFACE-ROUTING.md`。ABM API 优先 `src/server/abm/` 并按现有 route 注册。
+
+## 规则
+
+- Run 须绑定：seed、参数快照、Model 版本；产出可查询 Trace。
+- 解释类 endpoint：入参含 Trace 区间 + ODD/机制引用；响应含可点击证据字段。
+- 草案生成、实验扫描、复现包导出：结果对象可持久化、可 `@` 引用。
+- 新 JSON 形状：forward migration + 测试 + `check:persistence-upgrade`。
+- API 变更配 request-shape 测试；跑 `bun run check:server`。
+
+**禁止**在无 Run 记录时返回伪造指标或吻合度分数。

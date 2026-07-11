@@ -1,0 +1,26 @@
+---
+description: 底座复用 vs ABM 新建；目录约定
+alwaysApply: true
+---
+
+# Fork 上下文
+
+- **底座**：`src/` CLI+server+tools、`desktop/` 会话工作台、`adapters/` IM。
+- **目标**：Auto-ABM 仿真科研仪器。详见 `docs/ai/FORK-CONTEXT.md`。
+
+## 复用
+
+Agent 循环、server API/WS、桌面壳、对话与权限、模型路由、质量门禁。
+
+## 新建（优先命名空间隔离）
+
+- `desktop/src/abm/` — 仿真工作区 UI
+- `src/server/abm/` — ABM API、Run/Trace、持久化
+- `src/abm/` — 领域类型与 runtime（按实际拆分）
+
+勿复制平行聊天栈；勿为 ABM 无关原因大改 IM/Teams/Computer Use。
+
+## 文档分流
+
+- ABM 规范：`docs/ai/*`、`core-requirements.md`
+- 底座实现：`docs/agent/`、`docs/memory/` — 仅查底座机制时用，非产品规范

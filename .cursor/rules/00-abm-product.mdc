@@ -1,0 +1,24 @@
+---
+description: Auto-ABM 产品北向约束（仿真一等对象、证据链、MVP）
+alwaysApply: true
+---
+
+# Auto-ABM 产品北向
+
+本仓库正在将 Coding Agent **底座**二次开发为 **ABM 科研工作台**。完整约束见 `core-requirements.md` 与 `docs/ai/PRODUCT-CONSTRAINTS.md`。
+
+## 必须记住
+
+- 用户操作 **Simulation / Run / Trace / ODD**，不是代码仓库。
+- 主界面重心：**仿真工作区**（Interface、画布、Trace、ODD），对话是意图入口。
+- 解释必须有 **Trace/指标证据链**；无证据标「推测」；**禁止编造**运行结果。
+- **MVP**：单 Simulation 闭环、草案采纳、区间解释+机制归因、单参扫描、研究+对话模式、复现包导出。
+- **不做**：IDE 中心形态、探索模式全流程（除非 Boss 明确）、分布式/3D/GIS。
+
+## 模式
+
+- **研究模式**：改 Model/跑实验；结构变更与大规模操作须确认。
+- **对话模式**：只读。
+- **探索模式**：MVP 可后置；若做则报告必须链 `run_id`。
+
+有歧义时读 `docs/ai/INDEX.md`，勿扩大范围。

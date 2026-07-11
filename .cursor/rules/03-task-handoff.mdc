@@ -1,0 +1,31 @@
+---
+description: Boss 任务解析、请示边界、交接格式
+alwaysApply: true
+---
+
+# 任务与交接
+
+协议全文：`docs/ai/TASK-PROTOCOL.md`。
+
+## 接到任务
+
+1. 解析：目标对象、surface、是否在 MVP、验收标准。
+2. 读 `docs/ai/SURFACE-ROUTING.md` 确认落点。
+3. 实现 → 窄验证 → 交接。
+
+## 请示 Boss
+
+产品分叉、改 MVP 范围、破坏性数据迁移、大依赖/新子系统、无关底座大删改。
+
+## 不必请示
+
+已写在 `core-requirements.md` 的 MVP 项、沿用现有模式、约定目录内新建 ABM 模块。
+
+## 交接必含
+
+- 变更文件列表
+- 已跑 / 未跑验证
+- 风险与回滚
+- 待 Boss 决定项（若有）
+
+歧义：列 2 种理解 + 推荐，一次问清；禁止静默偏离产品。

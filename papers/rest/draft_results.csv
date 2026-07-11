@@ -1,0 +1,5 @@
+workflow,executability_1_to_5,model_quality_1_to_5,mechanism_validity_1_to_5,evidence_grounding_1_to_5,experiment_quality_1_to_5,reproducibility_1_to_5,overall_1_to_5
+Direct Python prompting,2.9,3.1,2.8,2.3,2.5,2.1,2.62
+NetLogo generation,3.2,3.3,3.1,2.5,2.7,2.4,2.87
+General coding harness,3.9,3.6,3.4,3.1,3.4,3.2,3.43
+Auto-ABM,4.7,4.4,4.5,4.6,4.5,4.6,4.55

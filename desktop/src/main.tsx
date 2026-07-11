@@ -1,0 +1,71 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './theme/globals.css'
+import { initializeAppZoom } from './lib/appZoom'
+import { initializeTouchH5 } from './lib/touchH5'
+import { runDesktopPersistenceMigrations } from './lib/persistenceMigrations'
+
+declare global {
+  interface Window {
+    __AUTOABM_BOOTSTRAPPED__?: boolean
+    __AUTOABM_SHOW_STARTUP_ERROR__?: (reason: unknown) => void
+  }
+}
+
+type DesktopBootstrapModules = [
+  { App: React.ComponentType },
+  { ErrorBoundary: React.ComponentType<{ children: React.ReactNode }> },
+  { installClientDiagnosticsCapture: () => void },
+  { initializeTheme: () => void },
+]
+
+function loadDesktopBootstrapModules() {
+  return Promise.all([
+    import('./App'),
+    import('./components/ErrorBoundary'),
+    import('./lib/diagnosticsCapture'),
+    import('./stores/uiStore'),
+  ])
+}
+
+export async function bootstrapDesktopApp(
+  root: HTMLElement | null = document.getElementById('root'),
+  loadModules: () => Promise<DesktopBootstrapModules> = loadDesktopBootstrapModules,
+) {
+  try {
+    const [{ App }, { ErrorBoundary }, { installClientDiagnosticsCapture }, { initializeTheme }] = await loadModules()
+    initializeTheme()
+    installClientDiagnosticsCapture()
+
+    if (!root) {
+      throw new Error('Desktop root element not found')
+    }
+
+    ReactDOM.createRoot(root).render(
+      <React.StrictMode>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </React.StrictMode>,
+    )
+    window.__AUTOABM_BOOTSTRAPPED__ = true
+    if (import.meta.env.VITE_ABM_E2E === 'true') {
+      void import('./e2e/exposeForPlaywright')
+    }
+  } catch (error) {
+    console.error('[desktop] Failed to bootstrap app', error)
+    if (root) {
+      if (window.__AUTOABM_SHOW_STARTUP_ERROR__) {
+        window.__AUTOABM_SHOW_STARTUP_ERROR__(error)
+      } else {
+        root.textContent = error instanceof Error ? error.message : String(error)
+      }
+    }
+  }
+}
+
+runDesktopPersistenceMigrations()
+initializeTouchH5()
+void initializeAppZoom()
+
+void bootstrapDesktopApp()

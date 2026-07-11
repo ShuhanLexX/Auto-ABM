@@ -1,0 +1,68 @@
+export const ELECTRON_IPC_CHANNELS = {
+  appGetVersion: 'desktop:app:get-version',
+  runtimeGetServerUrl: 'desktop:runtime:get-server-url',
+  commandInvoke: 'desktop:command:invoke',
+  clipboardReadText: 'desktop:clipboard:read-text',
+  clipboardWriteText: 'desktop:clipboard:write-text',
+  shellOpen: 'desktop:shell:open',
+  shellOpenPath: 'desktop:shell:open-path',
+  traceOpenWindow: 'desktop:trace:open-window',
+  dialogOpen: 'desktop:dialog:open',
+  dialogSave: 'desktop:dialog:save',
+  updateCheck: 'desktop:update:check',
+  updateDownload: 'desktop:update:download',
+  updateInstall: 'desktop:update:install',
+  updatePrepareInstall: 'desktop:update:prepare-install',
+  updateCancelInstall: 'desktop:update:cancel-install',
+  updateRelaunch: 'desktop:update:relaunch',
+  notificationPermissionState: 'desktop:notification:permission-state',
+  notificationRequestPermission: 'desktop:notification:request-permission',
+  notificationSend: 'desktop:notification:send',
+  notificationActionAck: 'desktop:notification:action-ack',
+  windowMinimize: 'desktop:window:minimize',
+  windowToggleMaximize: 'desktop:window:toggle-maximize',
+  windowClose: 'desktop:window:close',
+  windowStartDragging: 'desktop:window:start-dragging',
+  windowRequestAttention: 'desktop:window:request-attention',
+  windowFocus: 'desktop:window:focus',
+  windowIsMaximized: 'desktop:window:is-maximized',
+  terminalSpawn: 'desktop:terminal:spawn',
+  terminalWrite: 'desktop:terminal:write',
+  terminalResize: 'desktop:terminal:resize',
+  terminalKill: 'desktop:terminal:kill',
+  terminalGetBashPath: 'desktop:terminal:get-bash-path',
+  terminalSetBashPath: 'desktop:terminal:set-bash-path',
+  previewOpen: 'desktop:preview:open',
+  previewNavigate: 'desktop:preview:navigate',
+  previewSetBounds: 'desktop:preview:set-bounds',
+  previewSetVisible: 'desktop:preview:set-visible',
+  previewClose: 'desktop:preview:close',
+  previewMessage: 'desktop:preview:message',
+  appModeGet: 'desktop:app-mode:get',
+  appModeSet: 'desktop:app-mode:set',
+  appModeDetectPortableDir: 'desktop:app-mode:detect-portable-dir',
+  appModePrepareRestart: 'desktop:app-mode:prepare-restart',
+  appModeRestart: 'desktop:app-mode:restart',
+  adaptersRestartSidecar: 'desktop:adapters:restart-sidecar',
+  zoomSet: 'desktop:zoom:set',
+} as const
+
+export const ELECTRON_EVENT_CHANNELS = {
+  event: 'desktop:event',
+  webviewDragDrop: 'desktop:webview:drag-drop',
+  notificationAction: 'desktop:notification:action',
+  updateDownloadEvent: 'desktop:update:download-event',
+  windowResized: 'desktop:window:resized',
+  nativeMenuNavigate: 'desktop:window:native-menu-navigate',
+  terminalOutput: 'desktop:terminal:output',
+  terminalExit: 'desktop:terminal:exit',
+  previewEvent: 'desktop:preview:event',
+} as const
+
+export const ELECTRON_INTERNAL_CHANNELS = {
+  previewMessageFromView: 'desktop:preview:message-from-view',
+} as const
+
+export type ElectronIpcChannel = typeof ELECTRON_IPC_CHANNELS[keyof typeof ELECTRON_IPC_CHANNELS]
+export type ElectronEventChannel = typeof ELECTRON_EVENT_CHANNELS[keyof typeof ELECTRON_EVENT_CHANNELS]
+export type ElectronInternalChannel = typeof ELECTRON_INTERNAL_CHANNELS[keyof typeof ELECTRON_INTERNAL_CHANNELS]

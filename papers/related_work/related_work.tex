@@ -1,0 +1,85 @@
+% Auto-ABM --- Related Work (draft)
+% Format follows the EMNLP/ACL template in ../emnlp2026 (acl.sty + acl_natbib.bst).
+% Compile:  pdflatex related_work && bibtex related_work && pdflatex related_work && pdflatex related_work
+
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+
+\title{Auto-ABM: Related Work (Draft)}
+
+\author{Anonymous \\
+  \texttt{anonymous@example.com}}
+
+\begin{document}
+\maketitle
+
+\section{Related Work}
+
+\subsection{The Agent-Based Modeling Ecosystem}
+
+Agent-based modeling (ABM) represents a system as autonomous agents that follow
+local rules and interact with one another and their environment. The modeler
+specifies individual behavior and observes how macro patterns emerge from the
+bottom up \citep{bonabeau2002abm,macal2010tutorial}. Classic studies such as
+Schelling's segregation model \citep{schelling1971segregation} and Epstein and
+Axtell's Sugarscape \citep{epstein1996growing} established ABM as a standard
+tool across ecology, epidemiology, economics, and the social sciences. A mature
+software ecosystem supports this work: NetLogo \citep{wilensky1999netlogo},
+Repast Simphony \citep{north2013repast}, MASON \citep{luke2005mason}, Mesa
+\citep{kazil2020mesa,terhoeven2025mesa3}, and GAMA \citep{taillandier2019gama}.
+The ODD protocol provides a common standard for documenting models
+\citep{grimm2006odd,grimm2020odd}.
+
+Building and studying a model nevertheless remains largely manual work that
+requires both programming skill and domain knowledge. Researchers still move by
+hand through reading literature, writing an ODD, translating it into code,
+debugging, sweeping parameters, and interpreting output
+\citep{macal2010tutorial,grimm2020odd}. Recent work has brought large language
+models (LLMs) into isolated steps of this cycle. NetLogo Chat assists with
+writing and learning NetLogo code \citep{chen2024netlogochat}; few-shot prompting
+and retrieval improve generated code accuracy \citep{martinez2024netlogo}; and
+SAGE uses a verifier to iteratively produce runnable models
+\citep{niu2024sage}. Connectors built on the Model Context Protocol
+\citep{mcp2024}, such as NetLogo-MCP \citep{netlogomcp2025}, let an assistant
+create and run models in conversation. Each tool automates a single chore rather
+than the wider loop in which the simulation, its execution trace, and its ODD
+are the objects of study.
+
+\subsection{AI-Driven Automation of the Modeling Workflow}
+
+A separate line of research asks how far LLM agents can automate multi-step
+scientific work. ReAct interleaves reasoning with tool use in an iterative loop
+\citep{yao2023react}; wrapping an LLM with tools, memory, and control logic in
+an agentic harness yields systems that can plan and execute extended workflows
+\citep{wang2024survey}. This pattern now drives broader AutoResearch efforts.
+The AI Scientist automates ideation, coding, experimentation, and writing for
+machine-learning research \citep{lu2024aiscientist}; Coscientist plans and runs
+real chemistry experiments through laboratory automation
+\citep{boiko2023coscientist}; and AgentEconomist translates economic intuitions
+into executable experiments over a fixed simulator, grounding each stage in the
+literature \citep{agenteconomist2026}. These systems span a full study, but they
+target program code, wet-lab reactions, or one domain-specific simulator rather
+than the simulation, trace, and ODD that define an ABM research workflow.
+
+Closer to our setting, several systems automate parts of the modeling pipeline
+from natural language. SAGE and SOCIA generate and repair simulator code from
+scenario descriptions \citep{niu2024sage,hua2025socia}; AgentEconomist
+orchestrates hypothesis formation, experiment design, and execution over a
+simulator \citep{agenteconomist2026}. Auto-ABM pursues a broader goal: rather
+than producing one-off code or automating a single stage, it orchestrates the
+full research loop around a classical, deterministic ABM. To our knowledge, no
+prior system combines natural-language workflow orchestration, deterministic
+execution on a reusable kernel, ODD-aligned documentation, trace-grounded
+explanation, and one-click reproducible export in a single simulation-first
+workbench.
+
+\bibliography{custom}
+
+\end{document}

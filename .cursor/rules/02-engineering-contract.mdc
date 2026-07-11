@@ -1,0 +1,30 @@
+---
+description: 工程契约摘要；全文见 AGENTS.md
+alwaysApply: true
+---
+
+# 工程契约摘要
+
+全文：`AGENTS.md`。任务开始声明 **surface**：`desktop` | `server` | `agent-loop` | `native` | `adapter` | `docs` | `release`。
+
+## 操作纪律
+
+- `git status --short` 后再改；不 revert 他人改动；diff 小而可追溯。
+- 最简单可行方案；不擅自加依赖、抽象、范围外功能。
+- 改持久化 → 迁移 + `bun run check:persistence-upgrade`。
+- Doctor/修复路径：**deny-by-default**；不碰 transcript、OAuth、MCP 等受保护状态。
+
+## 验证（默认窄门禁）
+
+| 面 | 命令 |
+| --- | --- |
+| desktop | `bun run check:desktop` |
+| server | `bun run check:server` |
+| adapter | `bun run check:adapters` |
+| native | `bun run check:native` |
+
+仅 PR-ready / Boss 要求时跑 `bun run verify`。
+
+## 风格
+
+TypeScript、2 空格、ESM、无分号；`PascalCase` 组件、`camelCase` 函数；匹配邻域代码。

@@ -1,0 +1,150 @@
+{
+  "name": "autoabm-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Desktop workbench for AutoABM — AI-native ABM research workbench.",
+  "homepage": "https://github.com/ShuhanLexX/Auto-ABM",
+  "author": {
+    "name": "ShuhanLexX",
+    "email": "261571252+ShuhanLexX@users.noreply.github.com"
+  },
+  "type": "module",
+  "main": "electron-dist/main.cjs",
+  "build": {
+    "appId": "com.autoabm.desktop",
+    "productName": "AutoABM",
+    "asar": true,
+    "asarUnpack": [
+      "dist/**",
+      "node_modules/node-pty/**",
+      "src-tauri/resources/abm-kernel/**",
+      "src-tauri/binaries/**"
+    ],
+    "artifactName": "AutoABM-${version}-${os}-${arch}.${ext}",
+    "npmRebuild": false,
+    "directories": {
+      "output": "build-artifacts/electron"
+    },
+    "files": [
+      "dist/**",
+      "electron-dist/**",
+      "node_modules/node-pty/**",
+      "src-tauri/binaries/**",
+      "src-tauri/resources/abm-kernel/**",
+      "src-tauri/icons/**",
+      "src-tauri/resources/preview-agent.js",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "src-tauri/icons/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.inherit.plist",
+      "signIgnore": [
+        "/Contents/Frameworks/.+\\.(?:pak|bin|dat|nib)$",
+        "/Contents/Resources/.+\\.(?:asar|pak|bin|dat|icns|png|jpg|jpeg|gif|svg|ttf|woff|woff2)$"
+      ],
+      "notarize": true
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "src-tauri/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "src-tauri/icons",
+      "category": "Development",
+      "maintainer": "AutoABM <contact@autoabm.dev>"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "autoabm",
+        "repo": "autoabm"
+      }
+    ]
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "bun run build:preview-agent && node ./node_modules/typescript/bin/tsc -b && node ./node_modules/vite/bin/vite.js build",
+    "prepare:node-pty": "bun run ./scripts/prepare-node-pty.ts",
+    "build:electron": "bun run prepare:node-pty && bun build ./electron/main.ts --outfile ./electron-dist/main.cjs --target node --format cjs --external electron --external node-pty && bun build ./electron/preload.ts --outfile ./electron-dist/preload.cjs --target node --format cjs --external electron && bun build ./electron/preview-preload.ts --outfile ./electron-dist/preview-preload.cjs --target node --format cjs --external electron",
+    "build:preview-agent": "bun run ./scripts/build-preview-agent.ts",
+    "build:sidecars": "bun run ./scripts/build-sidecars.ts",
+    "clean:electron-output": "bun run ./scripts/clean-electron-output.ts",
+    "build:macos-arm64": "bash ./scripts/build-macos-arm64.sh",
+    "build:windows-x64": "powershell -ExecutionPolicy Bypass -File ./scripts/build-windows-x64.ps1",
+    "build:linux-x64": "bash ./scripts/build-linux.sh",
+    "build:linux-arm64": "LINUX_ARCH=arm64 bash ./scripts/build-linux.sh",
+    "electron:dev": "bun run build:electron && bun run ./scripts/electron-dev.ts",
+    "electron:build": "bun run build:sidecars && bun run build && bun run build:electron",
+    "electron:package": "bun run clean:electron-output && bun run electron:build && node ./node_modules/electron-builder/out/cli/cli.js --publish never",
+    "electron:package:dir": "bun run clean:electron-output && bun run electron:build && node ./node_modules/electron-builder/out/cli/cli.js --dir --publish never",
+    "check:electron": "node ./node_modules/typescript/bin/tsc -p electron/tsconfig.json && bun test electron && bun run build:electron",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "lint": "node ./node_modules/typescript/bin/tsc --noEmit"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@radix-ui/react-slot": "^1.3.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/dompurify": "^3.2.0",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dompurify": "^3.3.3",
+    "electron-updater": "^6.8.3",
+    "framer-motion": "^12.42.0",
+    "html2canvas": "^1.4.1",
+    "katex": "^0.16.45",
+    "lucide-react": "^0.469.0",
+    "marked": "^15.0.7",
+    "mermaid": "^11.14.0",
+    "node-pty": "^1.1.0",
+    "prism-react-renderer": "^2.4.1",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-diff-viewer-continued": "^4.2.0",
+    "react-dom": "^18.3.1",
+    "react-shiki": "^0.9.2",
+    "shiki": "^4.0.2",
+    "tailwind-merge": "^3.6.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^25.9.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/coverage-v8": "3.2.4",
+    "electron": "^42.3.0",
+    "electron-builder": "^26.8.1",
+    "jsdom": "^25.0.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.10",
+    "vitest": "^3.0.4"
+  }
+}

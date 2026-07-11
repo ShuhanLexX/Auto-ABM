@@ -1,0 +1,8 @@
+<svg width="2200" height="640" viewBox="0 0 2200 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2200" height="640" rx="64" fill="#FFFFFF"/>
+  <image x="104" y="80" width="480" height="480" href="app-icon.png" preserveAspectRatio="xMidYMid meet"/>
+  <text x="680" y="300" fill="#122033" font-family="SF Pro Display, Avenir Next, Inter, Helvetica Neue, Arial, sans-serif" font-size="168" font-weight="800">Claude Code</text>
+  <text x="680" y="448" fill="#0F8CEB" font-family="SF Pro Display, Avenir Next, Inter, Helvetica Neue, Arial, sans-serif" font-size="132" font-weight="800">Haha</text>
+  <path d="M1040 414H1502" stroke="#FF7A00" stroke-width="16" stroke-linecap="round"/>
+  <path d="M1538 414H1666" stroke="#12C7E8" stroke-width="16" stroke-linecap="round"/>
+</svg>
