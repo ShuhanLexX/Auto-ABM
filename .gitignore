@@ -97,3 +97,15 @@ CLAUDE.md
 .mavis/
 .opencode/
 graphify-out/
+
+# LaTeX / paper build junk (never commit)
+*.aux
+*.bbl
+*.blg
+*.synctex.gz
+papers/**/*.log
+papers/**/*.out
+papers/**/tmp-*
+papers/rest/main.pdf
+papers/rest/AutoABM-paper-updated-*.pdf
+papers/related_work/related_work.pdf
