@@ -187,9 +187,9 @@ const enSidebar = [
 
 export default withMermaid(defineConfig({
   title: 'AutoABM',
-  description: 'AI 原生应用框架 — LLM as CPU，构建 AI 原生业务产品的底座系统',
+  description: 'AI 原生的 Agent-Based Modeling 科研工作台',
   lastUpdated: true,
-  base: '/',
+  base: '/Auto-ABM/',
 
   markdown: {
     anchor: {
@@ -229,10 +229,10 @@ export default withMermaid(defineConfig({
     en: {
       label: 'English',
       lang: 'en-US',
-      description: 'AI-native application framework — LLM as CPU for building AI-native business products.',
+      description: 'AI-native agent-based modeling research workbench.',
       themeConfig: {
         editLink: {
-          pattern: 'https://github.com/SocialAI-X/Auto-ABM/edit/main/docs/:path',
+          pattern: 'https://github.com/ShuhanLexX/Auto-ABM/edit/main/docs/:path',
           text: 'Edit this page on GitHub',
         },
         nav: [
@@ -246,14 +246,14 @@ export default withMermaid(defineConfig({
 
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/SocialAI-X/Auto-ABM/edit/main/docs/:path',
+      pattern: 'https://github.com/ShuhanLexX/Auto-ABM/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
     search: {
       provider: 'local',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/SocialAI-X/Auto-ABM' },
+      { icon: 'github', link: 'https://github.com/ShuhanLexX/Auto-ABM' },
     ],
     footer: {
       message: 'Released under the MIT License.',

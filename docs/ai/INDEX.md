@@ -6,12 +6,12 @@
 
 | 顺序 | 文档 | 用途 |
 | --- | --- | --- |
-| 1 | [`core-requirements.md`](../../core-requirements.md) | 产品对象、交互、MVP 范围、不可违背原则 |
+| 1 | [`core-requirements.md`](https://github.com/ShuhanLexX/Auto-ABM/blob/main/core-requirements.md) | 产品对象、交互、MVP 范围、不可违背原则 |
 | 2 | [`FORK-CONTEXT.md`](./FORK-CONTEXT.md) | 底座 vs 目标产品；什么复用、什么新建 |
 | 3 | [`PRODUCT-CONSTRAINTS.md`](./PRODUCT-CONSTRAINTS.md) | 编码时的决策护栏（浓缩版） |
 | 4 | [`SURFACE-ROUTING.md`](./SURFACE-ROUTING.md) | ABM 能力应落在哪个工程面 |
 | 5 | [`TASK-PROTOCOL.md`](./TASK-PROTOCOL.md) | 如何理解 Boss 任务、何时上报、如何交接 |
-| 6 | [`../AGENTS.md`](../../AGENTS.md) | 工程契约：验证、持久化、风格、提交流程 |
+| 6 | [`AGENTS.md`](https://github.com/ShuhanLexX/Auto-ABM/blob/main/AGENTS.md) | 工程契约：验证、持久化、风格、提交流程 |
 
 ## 实现规范（动手改代码前读）
 
