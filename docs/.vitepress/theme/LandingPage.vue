@@ -16,9 +16,9 @@ const copy = {
     nav: [['产品', 'product'], ['演示', 'demo'], ['研究闭环', 'workflow'], ['方法', 'method']],
     navDownload: '下载',
     heroKicker: 'AI-NATIVE AGENT-BASED MODELING',
-    heroLineOne: '让智能体运行。',
-    heroLineTwo: '让涌现显形。',
-    heroText: 'AutoABM 把一个研究问题转化为可运行的智能体模型、自动化实验与可核验的机制解释。从微观规则出发，研究宏观世界如何发生。',
+    heroLineOne: '让智能体演化。',
+    heroLineTwo: '让涌现可见。',
+    heroText: 'AutoABM 从一个研究问题出发，自动构建可运行的智能体模型，设计并执行实验，再用真实 Trace 解释宏观现象如何从微观互动中涌现。',
     heroPrimary: '下载 Windows 版',
     heroSecondary: '观看完整演示',
     heroMeta: 'v1.0.0 · Windows x64 · Local-first · Open source',
@@ -26,62 +26,62 @@ const copy = {
     heroScreenStatus: '1,000 agents · tick 38 · deterministic seed 42',
     objects: [
       ['01', '提出问题', 'Research question'],
-      ['02', '生成世界', 'Versioned simulation'],
+      ['02', '构建模型', 'Versioned simulation'],
       ['03', '运行实验', 'Deterministic runs'],
       ['04', '解释涌现', 'Trace-grounded evidence'],
     ],
     statementEyebrow: 'A NEW WAY TO DO ABM',
-    statementTitle: '不是更快地写代码。\n是更快地抵达发现。',
-    statementText: '传统 ABM 工作流被模型实现、实验脚本、可视化与文档割裂。AutoABM 将它们重新组织为一个以 Simulation 为中心、由 AI 驱动、由证据约束的研究系统。',
+    statementTitle: '不再把时间耗在拼工具上。\n把精力留给真正的发现。',
+    statementText: '传统 ABM 研究往往散落在模型代码、实验脚本、可视化工具和说明文档之间。AutoABM 把这些环节收进同一个工作台：以 Simulation 组织研究，由 AI 推动流程，用真实运行结果约束结论。',
     demoEyebrow: 'FULL PRODUCT FILM · 02:30',
-    demoTitle: '从一句问题，\n到一次完整研究。',
-    demoText: '完整演示从案例与研究问题开始，经过方案生成、实时仿真、深度实验、机制图与 ODD，最终形成可追溯的解释和复现包。',
+    demoTitle: '两分半，看一项研究\n如何从问题走向结论。',
+    demoText: '演示从选题开始：生成并比较建模方案，运行实时仿真，设计干预实验，查看机制图与 ODD，最后得到有据可查的解释和完整复现包。',
     demoChapters: [['00:00', '研究入口'], ['00:24', '实时仿真'], ['01:06', '深度实验'], ['01:42', '机制与 ODD'], ['02:12', '自主研究']],
     videoFallback: '你的浏览器不支持视频播放。',
     productEyebrow: 'THE SIMULATION IS THE PRODUCT',
-    productTitle: '把复杂系统，\n变成可操作的研究对象。',
-    productText: '不是代码编辑器外加聊天框。每个研究对象都有身份、版本、运行历史和证据链。',
+    productTitle: '让复杂系统成为\n可操控、可验证的研究对象。',
+    productText: '这不是在代码编辑器旁边加一个聊天框。每个 Simulation 都有明确身份、版本、运行记录和证据链，可以被引用、比较、复现和继续追问。',
     productFeatures: [
-      ['Simulation', '版本化的世界', '模型结构、Agent、环境、参数与 ODD 共同构成一个可演化的 Simulation。'],
-      ['Run + Trace', '运行留下证据', '每个 tick 的状态、指标、事件和机制触发都进入 Trace，成为解释的数据根。'],
-      ['Experiment', '自动化研究设计', '参数扫描、干预比较与多种子重复，在同一个面板里运行、比较与导出。'],
-      ['Mechanism', '从相关走向机制', '把宏观曲线的变化连接回微观 Agent、事件和机制路径。'],
+      ['Simulation', '模型有版本，研究有来路', '模型结构、智能体、环境、参数与 ODD 共同组成一个持续演化、随时可追溯的 Simulation。'],
+      ['Run + Trace', '每次运行都留下证据', '每个 tick 的状态、指标、事件与机制触发都会写入 Trace，成为后续解释的事实基础。'],
+      ['Experiment', '把研究设计交给自动化', '参数扫描、干预对照和多随机种子重复，都能在同一面板中运行、比较和导出。'],
+      ['Mechanism', '从看到相关，到理解机制', '把宏观曲线的变化一路追溯到微观智能体、关键事件和具体机制。'],
     ],
     canvasLabel: 'REAL-TIME SIMULATION CANVAS',
-    canvasTitle: '看见 1,000 个智能体如何共同改变系统。',
-    canvasText: '空间、网络与连续环境实时演化。调参、运行、暂停、回放，并在同一个时间窗口里阅读指标与 Agent 状态。',
+    canvasTitle: '看见 1,000 个智能体如何共同塑造一个系统。',
+    canvasText: '空间、网络与连续环境实时演化。你可以随时调参、运行、暂停和回放，并在同一时间窗口中对照指标变化与智能体状态。',
     experimentLabel: 'DEEP EXPERIMENT',
-    experimentTitle: '把追问直接变成实验。',
-    experimentText: '用自然语言提出干预或比较，自动生成实验视图，保持 baseline、seed 与指标定义可检查。',
+    experimentTitle: '提出一个追问，立即得到一组实验。',
+    experimentText: '用自然语言描述想比较的机制或干预，AutoABM 会生成对应的实验视图；基线、随机种子和指标口径始终清晰可查。',
     workflowEyebrow: 'ONE QUESTION → A RESEARCH PROGRAM',
-    workflowTitle: '把科研循环压缩进一个工作台。',
+    workflowTitle: '让一次提问，展开为一套完整的研究流程。',
     workflowSteps: [
-      ['ASK', '描述现象或机制', '从开放问题、已有模型或论文数据开始。'],
-      ['DESIGN', '比较多个机制世界', 'AI 生成机制不同的草案；先比较边界，再采纳。'],
-      ['RUN', '让世界真正运行', '本地 Mesa 内核执行确定性 Run，持续写入 Trace。'],
-      ['EXPERIMENT', '自动试验与干预', '扫描参数、比较政策、重复运行并汇总真实指标。'],
-      ['EXPLAIN', '沿 Trace 解释涌现', '每一条结论都可回到 tick、Agent、事件与机制。'],
-      ['REPRODUCE', '交付可复现研究', '导出 Model、ODD、实验、seed、结果与 Trace。'],
+      ['ASK', '说清想研究的现象', '从一个开放问题、已有模型或论文数据出发。'],
+      ['DESIGN', '比较不同的机制假设', 'AI 生成多套建模方案；先看清假设与边界，再决定采用哪一套。'],
+      ['RUN', '让模型真正运行起来', '本地 Mesa 内核执行确定性 Run，并持续写入 Trace。'],
+      ['EXPERIMENT', '自动完成扫描与干预', '扫描参数、比较政策、重复运行，并汇总真实产生的指标。'],
+      ['EXPLAIN', '顺着 Trace 解释涌现', '每一条结论都能回到具体 tick、智能体、事件和机制。'],
+      ['REPRODUCE', '交付可复现的研究', '一并导出 Model、ODD、实验、随机种子、结果与 Trace。'],
     ],
-    quoteTranslation: '多，即不同。',
+    quoteTranslation: '多者异也。',
     quoteOriginal: 'MORE IS DIFFERENT.',
     quoteBy: 'P. W. Anderson · Science · 1972',
-    quoteText: '涌现不是一句比喻，而是 ABM 要观察、实验和解释的对象。AutoABM 在微观规则与宏观现象之间建立一条可运行、可回放、可核验的路径。',
+    quoteText: '当个体足够多、互动足够复杂，系统便会呈现出个体层面看不到的新规律。涌现不是一句比喻，而是 ABM 要观察、实验和解释的核心对象。AutoABM 让微观规则到宏观现象之间的路径可以运行、回放和核验。',
     evidenceEyebrow: 'EVIDENCE, NOT ELOQUENCE',
-    evidenceTitle: 'AI 负责追问。\nTrace 负责作证。',
-    evidenceText: '解释从选定的 Trace 窗口出发，连接智能体状态、机制触发、事件和指标变化。事实与推断明确分开，研究者保留最终判断。',
+    evidenceTitle: 'AI 可以提出解释。\nTrace 必须给出证据。',
+    evidenceText: '每次解释都从选定的 Trace 区间出发，把智能体状态、机制触发、关键事件和指标变化连在一起。哪些是事实、哪些是推断，界面会清楚标明；最终判断始终属于研究者。',
     evidencePoints: ['真实 Run 才能产生指标', '解释引用具体 tick 与机制', '无证据的内容明确标为推测', '模型版本与 ODD 一一对应'],
     methodEyebrow: 'AN EVIDENCE-BOUND RESEARCH SYSTEM',
-    methodTitle: '从假设到论文方法，\n同一条证据链。',
-    methodText: '版本化 Simulation 位于系统中心。建模、执行、证据、实验和文档共享同一份模型身份；不可变 Trace 划定解释边界。',
+    methodTitle: '从提出假设到写下方法，\n始终沿用同一条证据链。',
+    methodText: '版本化的 Simulation 位于系统中心。建模、运行、实验、解释和文档始终指向同一模型版本；不可变的 Trace 则为每项结论划定证据边界。',
     modes: [
-      ['Research mode', '人在环路中', '研究者确认结构变更、批量实验与导出。'],
-      ['Dialogue mode', '只读解释', '询问模型、结果和 ODD，不产生任何变更。'],
-      ['Autonomous mode', '自动研究', '从问题出发自动生成、运行、比较与报告，所有数值来自真实 Run。'],
+      ['Research mode', '研究者掌握关键决策', '模型结构变更、批量实验和结果导出，都由研究者确认。'],
+      ['Dialogue mode', '只问不改，专注理解', '自由追问模型、结果和 ODD，同时保持研究对象完全不变。'],
+      ['Autonomous mode', '让系统自主推进研究', '从问题出发自动生成方案、运行、比较和报告；所有数值都来自真实 Run。'],
     ],
     downloadEyebrow: 'AUTOABM 1.0',
-    downloadTitle: '构造一个世界。\n然后问它为什么。',
-    downloadText: '面向社会科学与复杂系统研究的 AI 原生 ABM 桌面工作台。Windows 版本现已发布。',
+    downloadTitle: '构建一个世界。\n看它如何涌现。',
+    downloadText: 'AutoABM 是面向社会科学与复杂系统研究的 AI 原生 ABM 工作台。Windows 桌面版现已开放下载。',
     downloadButton: '下载 Windows x64',
     releaseButton: '查看 Release',
     sourceButton: 'GitHub 源码',
@@ -175,7 +175,7 @@ const v2 = (path: string) => withBase(`/launch/v2/${path}`)
 </script>
 
 <template>
-  <div class="site-shell">
+  <div :class="['site-shell', `locale-${locale}`]">
     <header class="topbar">
       <a class="wordmark" :href="homeHref" aria-label="AutoABM home">
         <img :src="asset('app-icon.png')" alt="" width="30" height="30">
@@ -435,6 +435,9 @@ const v2 = (path: string) => withBase(`/launch/v2/${path}`)
 .hero h1 { margin: 0; font-size: clamp(70px, 9vw, 138px); line-height: .86; letter-spacing: -.075em; font-weight: 590; }
 .hero h1 span, .hero h1 em { display: block; font-style: normal; }
 .hero h1 em { color: transparent; background: linear-gradient(100deg, #fff 4%, #d0ff97 36%, #52e6c2 72%); -webkit-background-clip: text; background-clip: text; }
+.locale-zh .hero h1 { line-height: 1.04; letter-spacing: -.06em; }
+.locale-zh .hero h1 span, .locale-zh .hero h1 em { white-space: nowrap; }
+.locale-zh .hero h1 em { margin-top: .04em; }
 .hero-text { max-width: 760px; margin: 38px auto 0; color: rgba(255,255,255,.67); font-size: clamp(16px, 1.5vw, 21px); line-height: 1.75; }
 .hero-actions, .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
 .button { min-height: 49px; padding: 0 21px; display: inline-flex; align-items: center; justify-content: center; gap: 22px; border: 1px solid transparent; border-radius: 999px; font-size: 12px; font-weight: 740; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
@@ -588,6 +591,7 @@ footer small { grid-column: 1 / -1; padding-top: 20px; border-top: 1px solid var
   .small-download span { margin: 0; font-size: 12px; }
   .hero { min-height: 890px; padding-top: 125px; }
   .hero h1 { font-size: 46px; line-height: .98; }
+  .locale-zh .hero h1 { font-size: 46px; line-height: 1.08; letter-spacing: -.055em; }
   .hero-text { font-size: 15px; }
   .hero-actions .button { width: 100%; }
   .hero-stage { width: 125%; margin-left: -12.5%; border-radius: 12px 12px 0 0; }
