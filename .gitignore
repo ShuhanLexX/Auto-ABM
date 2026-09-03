@@ -54,6 +54,8 @@ videos/
 *.mp4
 *.mov
 *.mkv
+!docs/public/launch/v2/autoabm-product-demo.mp4
+!promo/autoabm-launch/public/footage/autoabm-product-body.mp4
 
 # Claude local config & auto-generated
 .claude/

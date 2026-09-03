@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "remotion studio",
     "build": "remotion bundle",
-    "render": "remotion render src/index.ts AutoAbmPromo out/autoabm-promo.mp4 --codec=h264 --crf=18"
+    "render": "remotion render src/index.ts AutoAbmPromo out/autoabm-promo.mp4 --codec=h264 --crf=18",
+    "render:product-demo": "powershell -ExecutionPolicy Bypass -File scripts/render-product-demo.ps1"
   },
   "dependencies": {
   },

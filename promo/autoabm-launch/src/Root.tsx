@@ -1,5 +1,7 @@
 import {Composition} from 'remotion'
 import {AutoAbmPromo} from './AutoAbmPromo'
+import {ProductDemoClosing} from './components/ProductDemoClosing'
+import {ProductDemoIntro} from './components/ProductDemoIntro'
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -8,6 +10,22 @@ export const RemotionRoot: React.FC = () => {
         id="AutoAbmPromo"
         component={AutoAbmPromo}
         durationInFrames={750}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ProductDemoClosing"
+        component={ProductDemoClosing}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ProductDemoIntro"
+        component={ProductDemoIntro}
+        durationInFrames={720}
         fps={30}
         width={1920}
         height={1080}
