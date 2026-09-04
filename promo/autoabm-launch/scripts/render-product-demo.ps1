@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $ffmpegPath = Join-Path $projectRoot 'node_modules\\@remotion\\compositor-win32-x64-msvc\\ffmpeg.exe'
 $sourcePath = Join-Path $projectRoot 'public\\footage\\autoabm-product-body.mp4'
-$introAudioPath = Join-Path $projectRoot 'public\\footage\\product-demo-intro-voice.aac'
+$introAudioPath = Join-Path $projectRoot 'public\\footage\\product-demo-intro-narration.mp3'
 $introPath = Join-Path $projectRoot 'out\\product-demo-intro.mp4'
 $closingPath = Join-Path $projectRoot 'out\\product-demo-closing.mp4'
 $resolvedOutputPath = [System.IO.Path]::GetFullPath((Join-Path $projectRoot $OutputPath))
@@ -39,7 +39,7 @@ finally {
   -i $introAudioPath `
   -f lavfi `
   -i 'sine=frequency=0:sample_rate=48000:duration=6' `
-  -filter_complex '[0:v][1:v][2:v]concat=n=3:v=1:a=0[v];[3:a]atrim=duration=9.7,aformat=channel_layouts=stereo[introAudio];[4:a]aformat=channel_layouts=stereo[closingAudio];[introAudio][1:a][closingAudio]concat=n=3:v=0:a=1[a]' `
+  -filter_complex '[0:v][1:v][2:v]concat=n=3:v=1:a=0[v];[3:a]atrim=duration=11,aformat=channel_layouts=stereo[introAudio];[4:a]aformat=channel_layouts=stereo[closingAudio];[introAudio][1:a][closingAudio]concat=n=3:v=0:a=1[a]' `
   -map '[v]' `
   -map '[a]' `
   -c:v libx264 `
