@@ -10,6 +10,9 @@ $sourcePath = Join-Path $projectRoot 'public\\footage\\autoabm-product-body.mp4'
 $introAudioPath = Join-Path $projectRoot 'public\\footage\\product-demo-intro-narration.mp3'
 $introPath = Join-Path $projectRoot 'out\\product-demo-intro.mp4'
 $closingPath = Join-Path $projectRoot 'out\\product-demo-closing.mp4'
+$caseSegmentStart = 99.1
+$caseSegmentDuration = 8.35
+$caseSegmentEnd = $caseSegmentStart + $caseSegmentDuration
 $resolvedOutputPath = [System.IO.Path]::GetFullPath((Join-Path $projectRoot $OutputPath))
 
 if (-not (Test-Path -LiteralPath $sourcePath)) {
@@ -34,12 +37,18 @@ finally {
 
 & $ffmpegPath -y `
   -i $introPath `
+  -t $caseSegmentStart `
+  -i $sourcePath `
+  -ss $caseSegmentStart `
+  -t $caseSegmentDuration `
+  -i $sourcePath `
+  -ss $caseSegmentEnd `
   -i $sourcePath `
   -i $closingPath `
   -i $introAudioPath `
   -f lavfi `
   -i 'sine=frequency=0:sample_rate=48000:duration=6' `
-  -filter_complex '[0:v][1:v][2:v]concat=n=3:v=1:a=0[v];[3:a]atrim=duration=11,aformat=channel_layouts=stereo[introAudio];[4:a]aformat=channel_layouts=stereo[closingAudio];[introAudio][1:a][closingAudio]concat=n=3:v=0:a=1[a]' `
+  -filter_complex '[0:v][2:v][1:v][3:v][4:v]concat=n=5:v=1:a=0[v];[5:a]atrim=duration=11,aformat=channel_layouts=stereo[introAudio];[6:a]aformat=channel_layouts=stereo[closingAudio];[introAudio][2:a][1:a][3:a][closingAudio]concat=n=5:v=0:a=1[a]' `
   -map '[v]' `
   -map '[a]' `
   -c:v libx264 `

@@ -35,8 +35,8 @@ const copy = {
     statementText: '传统 ABM 研究往往散落在模型代码、实验脚本、可视化工具和说明文档之间。AutoABM 把这些环节收进同一个工作台：以 Simulation 组织研究，由 AI 推动流程，用真实运行结果约束结论。',
     demoEyebrow: 'PRODUCT WALKTHROUGH · 02:33',
     demoTitle: '从问题到证据，\n一项研究如何完整展开。',
-    demoText: '先用一段产品概览讲清研究闭环与核心对象，再进入工作台：生成并比较方案，运行实时仿真，设计干预实验，查看机制图与 ODD，最终交付可复现的研究结果。',
-    demoChapters: [['00:00', '产品介绍'], ['00:05', '研究闭环'], ['00:11', '工作台实操'], ['00:56', '证据解释'], ['02:27', '研究交付']],
+    demoText: '先用一段产品概览讲清研究闭环与核心对象，再展示可直接导入的案例库，随后进入工作台：生成并比较方案，运行实时仿真，设计干预实验，查看机制图与 ODD，最终交付可复现的研究结果。',
+    demoChapters: [['00:00', '产品介绍'], ['00:05', '研究闭环'], ['00:11', '案例库'], ['00:19', '工作台实操'], ['01:04', '证据解释'], ['02:27', '研究交付']],
     videoFallback: '你的浏览器不支持视频播放。',
     productEyebrow: 'THE SIMULATION IS THE PRODUCT',
     productTitle: '让复杂系统成为\n可操控、可验证的研究对象。',
@@ -112,8 +112,8 @@ const copy = {
     statementText: 'Traditional ABM work is split across model implementation, experiment scripts, visualization, and documentation. AutoABM reunites them in a Simulation-first research system — driven by AI and bounded by evidence.',
     demoEyebrow: 'PRODUCT WALKTHROUGH · 02:33',
     demoTitle: 'From question to evidence,\none connected study.',
-    demoText: 'A short product overview first explains the research loop and its core objects. The walkthrough then moves through simulation design, live runs, deep experiments, mechanism graphs, ODD, and reproducible outputs.',
-    demoChapters: [['00:00', 'Product introduction'], ['00:05', 'Research loop'], ['00:11', 'Workbench walkthrough'], ['00:56', 'Evidence-based explanation'], ['02:27', 'Research handoff']],
+    demoText: 'A short product overview first explains the research loop and its core objects, then shows importable cases before entering the workbench for simulation design, live runs, deep experiments, mechanism graphs, ODD, and reproducible outputs.',
+    demoChapters: [['00:00', 'Product introduction'], ['00:05', 'Research loop'], ['00:11', 'Case library'], ['00:19', 'Workbench walkthrough'], ['01:04', 'Evidence-based explanation'], ['02:27', 'Research handoff']],
     videoFallback: 'Your browser does not support video playback.',
     productEyebrow: 'THE SIMULATION IS THE PRODUCT',
     productTitle: 'Turn complex systems\ninto research objects.',
@@ -471,7 +471,7 @@ const v2 = (path: string) => withBase(`/launch/v2/${path}`)
 .section-intro.inverse > p, .section-intro.inverse > div > p:not(.kicker) { color: rgba(255,255,255,.55); }
 .film-frame { overflow: hidden; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; background: #000; box-shadow: 0 45px 100px rgba(0,0,0,.4); }
 .film-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: black; }
-.film-chapters { min-height: 72px; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid rgba(255,255,255,.13); }
+.film-chapters { min-height: 72px; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid rgba(255,255,255,.13); }
 .film-chapters span { padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; border-right: 1px solid rgba(255,255,255,.11); color: rgba(255,255,255,.5); font-size: 10px; }
 .film-chapters span:last-child { border-right: 0; }
 .film-chapters b { color: var(--acid); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 8px; letter-spacing: .1em; }
